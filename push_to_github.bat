@@ -2,8 +2,8 @@
 setlocal
 cd /d "%~dp0"
 echo ========================================================
-echo Pushing FinWise AI to GitHub:
-echo https://github.com/rupeshdraven/AIPowered-Advisory.git
+echo Pushing Paradox / FinWise AI to GitHub:
+echo https://github.com/rupeshdraven/Paradox.git
 echo ========================================================
 echo.
 git push -u origin main
