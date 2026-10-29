@@ -1,6 +1,6 @@
-# FinWise AI — AI-Powered Financial Advisory & Planning Copilot
+# Paradox / FinWise AI — AI-Powered Financial Advisory & Planning Copilot
 
-**FinWise AI** is a modern, responsive, end-to-end **AI-powered financial advisory web application** designed to help investors understand their financial position, define multi-milestone goals, assess their risk appetite objectively, receive personalized suitability-scored investment recommendations, and interact with a profile-grounded AI decision copilot.
+**Paradox / FinWise AI** is a modern, responsive, end-to-end **AI-powered financial advisory web application** designed to help investors understand their financial position, define multi-milestone goals, assess their risk appetite objectively, receive personalized suitability-scored investment recommendations, and interact with a profile-grounded AI decision copilot.
 
 ---
 
@@ -70,36 +70,82 @@
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
-- **Frontend**: React 19, TypeScript, Tailwind CSS, Lucide React, Recharts, Vite.
-- **Backend**: Python 3.14, FastAPI, Pydantic v2, Uvicorn, SQLite3.
-- **Communication**: REST API with transparent Vite dev server proxy (`/api` → `http://127.0.0.1:8000`).
+- **Frontend**: React 19, TypeScript, Tailwind CSS v4, Lucide React, Recharts, Vite.
+- **Backend**: Python 3.10+, FastAPI, Pydantic v2, Uvicorn, SQLite3.
+- **Package Managers**: `npm` (Node.js) and `pip` (Python).
+- **Architecture**: Decoupled frontend & backend communicating through REST API with transparent Vite dev server proxy (`/api` → `http://127.0.0.1:8000`).
 
 ---
 
-## 🏃 Quick Start Guide
+## ⚙️ Environment Variables
+
+The application runs fully out-of-the-box using its built-in deterministic financial reasoning engine without requiring any external paid API keys.
+
+If you wish to optionally enable an external LLM for advisory text generation, copy `.env.example` to `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Variables defined in `.env.example`:
+- `OPENAI_API_KEY`: *(Optional)* Your OpenAI API key.
+- `GEMINI_API_KEY`: *(Optional)* Your Google Gemini API key.
+- `BACKEND_HOST`: Default `127.0.0.1`.
+- `BACKEND_PORT`: Default `8000`.
+
+*Never commit your `.env` file to any public Git repository.*
+
+---
+
+## 🏃 Installation & Running Locally
 
 ### 1. Prerequisites
-- **Node.js**: v18+ (verified with Node v24)
-- **Python**: 3.10+ (verified with Python 3.14)
+- **Node.js**: v18.0 or higher
+- **Python**: v3.10 or higher
 
-### 2. Run the Backend
+### 2. Install Dependencies
+
+**Backend:**
 ```bash
-# In project root:
+# In the root repository directory:
+pip install -r requirements.txt
+```
+
+**Frontend:**
+```bash
+# In the frontend directory:
+cd frontend
+npm install
+cd ..
+```
+
+---
+
+### 3. Run the Application
+
+#### Option A: Using Helper Scripts (Windows)
+- Double-click **`run_backend.bat`** to start the FastAPI server.
+- Double-click **`run_frontend.bat`** to start the Vite frontend.
+
+#### Option B: Using Terminal Commands
+
+**Terminal 1 — Start the Backend:**
+```powershell
+# From the project root:
 py -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
 ```
-*Backend runs on: `http://127.0.0.1:8000` (Swagger docs available at `http://127.0.0.1:8000/docs`)*
+*Backend runs on: `http://127.0.0.1:8000` (Interactive API docs at `http://127.0.0.1:8000/docs`)*
 
-### 3. Run the Frontend
-```bash
-# In frontend directory:
+**Terminal 2 — Start the Frontend:**
+```powershell
 cd frontend
 npm run dev
 ```
 *Frontend runs on: `http://localhost:5173`*
 
-*(Or simply double click `run_backend.bat` and `run_frontend.bat` on Windows!)*
+Open **`http://localhost:5173`** in your browser.
 
 ---
 
@@ -121,5 +167,4 @@ The application comes pre-loaded with a demonstration profile:
 
 ## 🔒 Responsible Financial Advisory Notice
 
-FinWise AI provides educational and decision-support information for demonstration purposes. Investment values and returns are subject to market conditions and are not guaranteed. Projections, indicative return rates, and financial health scores are illustrative estimations. This platform is an educational prototype and does not constitute certified statutory financial advisory under SEBI (Investment Advisers) Regulations.
-
+Paradox / FinWise AI provides educational and decision-support information for demonstration purposes. Investment values and returns are subject to market conditions and are not guaranteed. Projections, indicative return rates, and financial health scores are illustrative estimations. This platform is an educational prototype and does not constitute certified statutory financial advisory under SEBI (Investment Advisers) Regulations.
